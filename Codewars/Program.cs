@@ -8,36 +8,26 @@ namespace Codewars
         // Если функции передана допустимая строка PIN-кода, верните true, иначе верните false.
         private static void Main(string[] args)
         {
-            Console.WriteLine(ValidatePin("-123"));
+            Console.WriteLine(ValidatePin(""));
         }
 
         public static bool ValidatePin(string pin)
         {
-            bool validate = false, check = true;
-            int length = pin.Length, intPin = 0;
+            bool validate = true;
+            int length = pin.Length;
             if (length == 4 || length == 6)
             {
-                if (int.TryParse(pin, out intPin))
+                for (int i = 0; i < length; i++)
                 {
-                    for (int i = 0; i < length; i++)
+                    if (!Char.IsDigit(pin[i]))
                     {
-                        int n = Convert.ToInt32(pin[i]);
-                        if (n >= 0 || n <= 9 || ! "-".Equals(pin[i]) || ! " ".Equals(pin[i]))
-                        {
-                        }
-                        else
-                        {
-                            Console.WriteLine(n);
-                            check = false;
-                            break;
-                        }
+                        validate = false;
+                        break;
                     }
                 }
-                else
-                    check = false;
-                if (check)
-                    validate = true;
             }
+            else
+                validate = false;
             return (validate);
         }
     }
