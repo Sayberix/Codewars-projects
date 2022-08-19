@@ -4,34 +4,19 @@ namespace Codewars
 {
     internal class Program
     {
-        // Вам дадут слово. Ваша задача — вернуть средний символ слова. Если длина слова нечетная, вернуть средний символ.
-        // Если длина слова четная, верните средние 2 символа.
-        // Примеры:
-        // Kata.getMiddle("test") should return "es"
-        // Kata.getMiddle("testing") should return "t"
+        // Если мы перечислим все натуральные числа до 10, кратные 3 или 5, мы получим 3, 5, 6 и 9. Сумма этих кратных равна 23.
+        // Завершите решение так, чтобы оно возвращало сумму всех чисел, кратных 3 или 5, меньше переданного числа.
+        // Кроме того, если число отрицательное, верните 0 (для языков, в которых они есть).
+        // Примечание. Если число кратно и 3 и 5, считайте его только один раз.
 
         private static void Main(string[] args)
         {
-            /*
-            if (5 % 2 == 1)
-                Console.WriteLine("Верно");
-            else
-                Console.WriteLine("не Верно");*/
-            Console.WriteLine(GetMiddle("Лена"));
+
         }
         
         public static string GetMiddle(string s)
         {
-            double length = s.Length;
-            int pos = (int)Math.Ceiling(length / 2) - 1;
-            if (length % 2 == 0)
-            {
-                return (string.Concat(Convert.ToString(s[pos]), Convert.ToString(s[pos + 1])));
-            }
-            else
-            {
-                return Convert.ToString(s[pos]);
-            }
+
         }
     }
 }
