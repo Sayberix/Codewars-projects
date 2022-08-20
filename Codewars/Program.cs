@@ -11,12 +11,32 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-
+            Console.WriteLine(Solution(10));
         }
-        
-        public static string GetMiddle(string s)
-        {
 
+        public static int Solution(int value)
+        {
+            if (value < 0) return (0);
+            else
+            {
+                int sum = 0;
+                for (int i = 3; i < value; i += 3)
+                {
+                    sum += i;
+                }
+                for (int j = 5; j < value; j += 5)
+                {
+                    sum += j;
+                }
+                // другой вариант
+                /*
+                for (int i = 1; i < value; i++)
+                {
+                    if(i % 3 == 0 || i % 5 == 0)
+                        sum += i;
+                }*/
+                return sum;
+            }
         }
     }
 }
