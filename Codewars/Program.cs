@@ -4,55 +4,20 @@ namespace Codewars
 {
     internal class Program
     {
-        // Напишите функцию, которая принимает строку скобок и определяет, допустим ли порядок скобок.
-        // Функция должна возвращать значение true, если строка действительна и false - недействительная.
-        // "()"              =>  true
-        // ")(()))"          =>  false
-        // "("               =>  false
-        // "(())((()())())"  =>  true
+        // Пузырьковая сортировка
+
 
         private static void Main(string[] args)
         {
-            Console.WriteLine(ValidParentheses("((())()())"));    //   hi(hi))(   ())(()  (c(b(a)))(d)
+
         }
 
-        public static bool ValidParentheses(string input)
+        public static int[] BubbleSortOnce(int[] input)
         {
-            //Console.WriteLine($"{input}");
-            bool resault = false;
-            if (!(input is null))
-            {
-                int countLit = input.Length;
-                if (countLit > 0)
-                {
-                    int leftParentheses = 0, rightParentheses = 0;
-                    bool controlFlag = true;
-                    for (int i = 0; i < countLit; i++)
-                    {
-                        if (input[i].Equals('('))
-                        {
-                            leftParentheses++;
-                        }
-                        else
-                        {
-                            if (input[i].Equals(')'))
-                            {
-                                rightParentheses++;
-                                if (rightParentheses > leftParentheses)
-                                {
-                                    controlFlag = false;
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                    if (controlFlag == true && leftParentheses == rightParentheses && (leftParentheses + rightParentheses > 0))
-                        resault = true;
-                }
-                return resault;
-            }
-            else
-                return resault;
+            // Code the Bubblesort Algorithm here :D
+
+            return ?;
         }
+
     }
 }
