@@ -13,14 +13,14 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            Console.WriteLine(ValidParentheses("(c(b(a)))(d)"));    //   hi(hi))(   ())(()  (c(b(a)))(d)
+            Console.WriteLine(ValidParentheses("((())()())"));    //   hi(hi))(   ())(()  (c(b(a)))(d)
         }
 
         public static bool ValidParentheses(string input)
         {
-            //Console.WriteLine(${ })
+            //Console.WriteLine($"{input}");
             bool resault = false;
-            if (input is not null)
+            if (!(input is null))
             {
                 int countLit = input.Length;
                 if (countLit > 0)
