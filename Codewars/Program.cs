@@ -15,12 +15,24 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            
+            Order("is2 Thi1s T4est 3a");
         }
 
         public static string Order(string words)
         {
-            throw new NotImplementedException();
+            int length = words.Length;
+            int count = 0;
+            for (int i = 0; i < length; i++)
+            {
+                if (Char.IsDigit(words[i]))
+                    count++;
+            }
+            const int countArray = count;
+            string [] array = new string [countArray]
+            {
+
+            }
+            throw new NotImplementedException("mama");
         }
     }
 }
