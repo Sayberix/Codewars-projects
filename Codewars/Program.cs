@@ -4,32 +4,23 @@ namespace Codewars
 {
     internal class Program
     {
-        // Задача подсчета к-ва пролетов мяча. Подробные условия задачи: https://www.codewars.com/kata/5544c7a5cb454edb3c000047/train/csharp
+        // https://www.codewars.com/kata/55c45be3b2079eccff00010f/csharp
+        // Ваша задача — отсортировать заданную строку. Каждое слово в строке будет содержать одно число.
+        // Это число и есть позиция, которую должно занимать слово в результате.
+        // Примечание.Цифры могут быть от 1 до 9. Таким образом, первым словом будет 1 (а не 0).
+        // Если входная строка пуста, вернуть пустую строку.Слова во входной строке будут содержать только допустимые последовательные числа.
+        // "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+        // "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
+        // ""  -->  ""
 
         private static void Main(string[] args)
         {
-            Console.Write($"мяч пролетит мимо мамы {bouncingBall(3, 0.66, 1.5)} раз");
+            
         }
 
-        public static int bouncingBall(double h, double bounce, double window)
+        public static string Order(string words)
         {
-            int resault = 0;
-            // Условия выполнения корректности входных параметров
-            if (h > 0 && (bounce > 0 && bounce < 1) && window < h)
-            {
-                // Счетчик пролетов мяча вверх и вниз
-                int count = 1;
-                while(h > window)
-                {
-                    h *= bounce;
-                    if (h > window)
-                        count += 2;
-                }
-                resault = count;
-            }
-            else
-                return -1;
-            return resault;
+            throw new NotImplementedException();
         }
     }
 }
