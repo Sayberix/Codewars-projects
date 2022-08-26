@@ -5,74 +5,23 @@ namespace Codewars
 {
     internal class Program
     {
-        // https://www.codewars.com/kata/55c45be3b2079eccff00010f/csharp
-        // Ваша задача — отсортировать заданную строку. Каждое слово в строке будет содержать одно число.
-        // Это число и есть позиция, которую должно занимать слово в результате.
-        // Примечание. Цифры могут быть от 1 до 9. Таким образом, первым словом будет 1 (а не 0).
-        // Если входная строка пуста, вернуть пустую строку. Слова во входной строке будут содержать только допустимые последовательные числа.
-        // "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
-        // "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
-        // ""  -->  ""
+        // https://www.codewars.com/kata/513e08acc600c94f01000001/train/csharp
+        // Функция rgb неполная. Завершите его, чтобы передача десятичных значений RGB приводила к возврату шестнадцатеричного представления. Допустимые десятичные значения для RGB: 0–255. Любые значения, выпадающие из этого диапазона, должны быть округлены до ближайшего допустимого значения.
+        // Примечание.Ваш ответ всегда должен состоять из 6 символов, сокращение с 3 здесь не сработает.
+        // Ниже приведены примеры ожидаемых выходных значений:
+        // Rgb(255, 255, 255) # returns FFFFFF
+        // Rgb(255, 255, 300) # returns FFFFFF
+        // Rgb(0,0,0) # returns 000000
+        // Rgb(148, 0, 211) # returns 9400D3
 
         private static void Main(string[] args)
         {
-            Console.WriteLine($"'{Order("4of Fo1r pe6ople g3ood th5e the2")}'");
+            Console.WriteLine($"'{Rgb(255, 255, 255)}'");
         }
 
-        public static string Order(string words)
+        public static string Rgb(int r, int g, int b)
         {
-            if (string.IsNullOrEmpty(words))
-                return words;
-            int length = words.Length;
-            List<wordList> myList = new List<wordList>();
-            string word = null;
-            
-            for (int i = 0; i < length; i++)
-            {
-                if (!words[i].Equals(' '))
-                    word = String.Concat(word, words[i]);
-                if (words[i].Equals(' ') || i == length - 1)
-                {
-                    myList.Add(new wordList { word = word, number = Convert.ToInt32(FindNumber(word)) });
-                    word = null;
-                }
-            }
-
-            // Поиск цифры в слове
-            string FindNumber(string wordInFunction)
-            {
-                for (int i = 0; i < wordInFunction.Length; i++)
-                {
-                    if (Char.IsDigit(wordInFunction[i]))
-                        return (Convert.ToString(wordInFunction[i]));
-                }
-                return null;
-            }
-
-            myList.Sort(delegate (wordList numb1, wordList numb2)
-            { return numb1.number.CompareTo(numb2.number); }
-                );
-
-            foreach (wordList w in myList)
-            {
-                if (!(w.number == myList.Count))
-                    word = String.Concat(word, w.word, " ");
-                else
-                    word = String.Concat(word, w.word);
-            }
-            //Console.WriteLine($"{myList.Count}");
-            return word;
+            return null;
         }
-    }
-
-    internal class wordList
-    {
-        public string word { get; set; }
-        public int number { get; set; }
-
-        /* public override string ToString()
-         {
-             return "Number: " + number + "   Name: " + word;
-         }*/
     }
 }
