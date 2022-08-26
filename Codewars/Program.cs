@@ -21,49 +21,47 @@ namespace Codewars
 
         public static string Order(string words)
         {
-            if (words == "")
-                return "";
-            else
+            if (string.IsNullOrEmpty(words))
+                return words;
+            int length = words.Length;
+            List<wordList> myList = new List<wordList>();
+            string word = null;
+            
+            for (int i = 0; i < length; i++)
             {
-                int length = words.Length;
-                List<wordList> myList = new List<wordList>();
-                string word = null;
-                for (int i = 0; i < length; i++)
+                if (!words[i].Equals(' '))
+                    word = String.Concat(word, words[i]);
+                if (words[i].Equals(' ') || i == length - 1)
                 {
-                    if (!words[i].Equals(' '))
-                        word = String.Concat(word, words[i]);
-                    if (words[i].Equals(' ') || i == length - 1)
-                    {
-                        myList.Add(new wordList { word = word, number = Convert.ToInt32(FindNumber(word)) });
-                        word = null;
-                    }
+                    myList.Add(new wordList { word = word, number = Convert.ToInt32(FindNumber(word)) });
+                    word = null;
                 }
-
-                // Поиск цифры в слове
-                string FindNumber(string wordInFunction)
-                {
-                    for (int i = 0; i < wordInFunction.Length; i++)
-                    {
-                        if (Char.IsDigit(wordInFunction[i]))
-                            return (Convert.ToString(wordInFunction[i]));
-                    }
-                    return null;
-                }
-
-                myList.Sort(delegate (wordList numb1, wordList numb2)
-                { return numb1.number.CompareTo(numb2.number); }
-                    );
-
-                foreach (wordList w in myList)
-                {
-                    if (!(w.number == myList.Count))
-                        word = String.Concat(word, w.word, " ");
-                    else
-                        word = String.Concat(word, w.word);
-                }
-                Console.WriteLine($"{myList.Count}");
-                return word;
             }
+
+            // Поиск цифры в слове
+            string FindNumber(string wordInFunction)
+            {
+                for (int i = 0; i < wordInFunction.Length; i++)
+                {
+                    if (Char.IsDigit(wordInFunction[i]))
+                        return (Convert.ToString(wordInFunction[i]));
+                }
+                return null;
+            }
+
+            myList.Sort(delegate (wordList numb1, wordList numb2)
+            { return numb1.number.CompareTo(numb2.number); }
+                );
+
+            foreach (wordList w in myList)
+            {
+                if (!(w.number == myList.Count))
+                    word = String.Concat(word, w.word, " ");
+                else
+                    word = String.Concat(word, w.word);
+            }
+            //Console.WriteLine($"{myList.Count}");
+            return word;
         }
     }
 
