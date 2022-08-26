@@ -16,13 +16,13 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            Order("is2 Thi1s T4est 3a");
+            Console.WriteLine($"'{Order("4of Fo1r pe6ople g3ood th5e the2")}'");
         }
 
         public static string Order(string words)
         {
-            if (words is null)
-                throw new NotImplementedException(null);
+            if (words == "")
+                return "";
             else
             {
                 int length = words.Length;
@@ -32,7 +32,6 @@ namespace Codewars
                 {
                     if (!words[i].Equals(' '))
                         word = String.Concat(word, words[i]);
-                    //Console.WriteLine(word + ", " + words[i]);
                     if (words[i].Equals(' ') || i == length - 1)
                     {
                         myList.Add(new wordList { word = word, number = Convert.ToInt32(FindNumber(word)) });
@@ -54,9 +53,16 @@ namespace Codewars
                 myList.Sort(delegate (wordList numb1, wordList numb2)
                 { return numb1.number.CompareTo(numb2.number); }
                     );
+
                 foreach (wordList w in myList)
-                    word = String.Concat(word, w.word, " ");
-                throw new NotImplementedException(word);
+                {
+                    if (!(w.number == myList.Count))
+                        word = String.Concat(word, w.word, " ");
+                    else
+                        word = String.Concat(word, w.word);
+                }
+                Console.WriteLine($"{myList.Count}");
+                return word;
             }
         }
     }
@@ -66,9 +72,9 @@ namespace Codewars
         public string word { get; set; }
         public int number { get; set; }
 
-       /* public override string ToString()
-        {
-            return "Number: " + number + "   Name: " + word;
-        }*/
+        /* public override string ToString()
+         {
+             return "Number: " + number + "   Name: " + word;
+         }*/
     }
 }
