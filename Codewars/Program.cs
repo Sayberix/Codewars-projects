@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Codewars
 {
@@ -16,12 +15,13 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            Console.WriteLine($"'{Rgb(255, 255, 255)}'");
+            Console.WriteLine($"{Rgb(148, 0, 211)}");
         }
 
         public static string Rgb(int r, int g, int b)
         {
-            return null;
+            string HEX = string.Concat(r.ToString("X"), g.ToString("X"), b.ToString("X"));
+            return HEX;
         }
     }
 }
