@@ -19,7 +19,7 @@ namespace Codewars
             Order("is2 Thi1s T4est 3a");
         }
 
-        public static void Order(string words)
+        public static string Order(string words)
         {
             if (words is null)
                 throw new NotImplementedException(null);
@@ -30,15 +30,17 @@ namespace Codewars
                 string word = null;
                 for (int i = 0; i < length; i++)
                 {
-                    word = String.Concat(word, words[i]);
-                    Console.WriteLine(word + ", " + words[i]);
-                    if (words[i].Equals(' '))
+                    if (!words[i].Equals(' '))
+                        word = String.Concat(word, words[i]);
+                    //Console.WriteLine(word + ", " + words[i]);
+                    if (words[i].Equals(' ') || i == length - 1)
                     {
-                        myList.Add(new wordList { word = word, number = FindNumber(word) });
+                        myList.Add(new wordList { word = word, number = Convert.ToInt32(FindNumber(word)) });
                         word = null;
                     }
                 }
 
+                // Поиск цифры в слове
                 string FindNumber(string wordInFunction)
                 {
                     for (int i = 0; i < wordInFunction.Length; i++)
@@ -48,12 +50,13 @@ namespace Codewars
                     }
                     return null;
                 }
-                Console.WriteLine("\nCapacity: {0}", myList.Capacity);
-                Console.WriteLine(myList[0].word + " " + myList[0].number);
-                Console.WriteLine(myList[1].word + " " + myList[1].number);
-                Console.WriteLine(myList[2].word + " " + myList[2].number);
 
-                //throw new NotImplementedException("mama");
+                myList.Sort(delegate (wordList numb1, wordList numb2)
+                { return numb1.number.CompareTo(numb2.number); }
+                    );
+                foreach (wordList w in myList)
+                    word = String.Concat(word, w.word, " ");
+                throw new NotImplementedException(word);
             }
         }
     }
@@ -61,6 +64,11 @@ namespace Codewars
     internal class wordList
     {
         public string word { get; set; }
-        public string number { get; set; }
+        public int number { get; set; }
+
+       /* public override string ToString()
+        {
+            return "Number: " + number + "   Name: " + word;
+        }*/
     }
 }
