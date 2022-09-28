@@ -19,27 +19,16 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            Console.WriteLine($"{GetReadableTime(0)}");
+            Console.WriteLine($"{GetReadableTime(1750)}");
         }
 
         public static string GetReadableTime(int seconds)
         {
             string[] array = new string[3] { "00", "00", "00" };
-            if (seconds > 0 && seconds < 60)
-            {
-                array[2] = Convert.ToString(seconds);
-            }
-            if (seconds > 59 && seconds < 3600)
-            {
-                array[2] = Convert.ToString(seconds % 60);
-                array[1] = Convert.ToString(seconds / 60);
-            }
-            if (seconds > 3599 && seconds < 360000)
-            {
-                array[0] = Convert.ToString(seconds / 60 / 60);
-                array[1] = Convert.ToString(seconds / 60 % 60);
-                array[2] = Convert.ToString(seconds % 60 % 60 % 60);
-            }
+            
+            array[0] = Convert.ToString(seconds / 60 / 60);
+            array[1] = Convert.ToString(seconds / 60 % 60);
+            array[2] = Convert.ToString(seconds % 60 % 60 % 60);
             for (int i = 0; i < 3; i++)
             {
                 if (array[i].Length == 1)
@@ -87,9 +76,8 @@ public static class TimeFormat
       int sec = (seconds % 60);
       int min = ((seconds-sec)/60)%60;
       int hour = (seconds-sec-(60*min))/(60*60);
-      
+
       return (hour.ToString("00")+":"+min.ToString("00")+":"+sec.ToString("00"));
     }
 }
 */
-
