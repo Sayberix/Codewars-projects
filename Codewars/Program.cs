@@ -9,7 +9,7 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            Console.Write(MorseCode(".."));
+            Console.Write(MorseCodeDecode(".... . -.--   .--- ..- -.. ."));
         }
 
         /*
@@ -34,7 +34,28 @@ namespace Codewars
             return MorseCode.Get(result);
         }*/
 
-        public static string MorseCode(string cod)
+        public static string MorseCodeDecode(string cod)
+        {
+            string resault = "", letter = "";
+            for (int i = 0; i < cod.Length; i++)
+            {
+                if (cod[i].Equals(' '))
+                {
+                    resault = String.Concat(resault, MorseCodeLetter(Convert.ToString(letter)));
+                    letter = "";
+                }
+                else
+                if (cod[i].Equals('.') || cod[i].Equals('-'))
+                    letter = String.Concat(letter, cod[i]);
+                else
+                if (cod[i].Equals("   "))
+                    resault = String.Concat(resault, " ");
+            }
+            resault = String.Concat(resault, MorseCodeLetter(Convert.ToString(letter)));
+            return resault;
+        }
+
+        public static string MorseCodeLetter(string cod)
         {
             string resault;
             switch (cod)
