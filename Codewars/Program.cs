@@ -41,15 +41,22 @@ namespace Codewars
             {
                 if (cod[i].Equals(' '))
                 {
-                    resault = String.Concat(resault, MorseCodeLetter(Convert.ToString(letter)));
-                    letter = "";
+                    if (letter != "")
+                    {
+                        resault = String.Concat(resault, MorseCodeLetter(Convert.ToString(letter)));
+                        letter = "";
+                    }
+                    else
+                    {
+                        resault = String.Concat(resault, " ");
+                        i += 1;
+                    }
                 }
                 else
-                if (cod[i].Equals('.') || cod[i].Equals('-'))
-                    letter = String.Concat(letter, cod[i]);
-                else
-                if (cod[i].Equals("   "))
-                    resault = String.Concat(resault, " ");
+                {
+                    if (cod[i].Equals('.') || cod[i].Equals('-'))
+                        letter = String.Concat(letter, cod[i]);                      
+                }
             }
             resault = String.Concat(resault, MorseCodeLetter(Convert.ToString(letter)));
             return resault;
