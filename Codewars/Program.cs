@@ -10,7 +10,7 @@ namespace Codewars
         private static void Main(string[] args)
         {
             //Console.Write(MorseCodeDecode(".... . -.--   .--- ..- -.. ."));     //  . 
-            Console.Write(MorseCodeDecode("."));     // 
+            Console.Write(MorseCodeDecode(" . "));     // 
         }
         
         public static string MorseCodeDecode(string cod)
