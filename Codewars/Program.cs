@@ -9,31 +9,10 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            Console.Write(MorseCodeDecode(".... . -.--   .--- ..- -.. ."));
+            //Console.Write(MorseCodeDecode(".... . -.--   .--- ..- -.. ."));     //  . 
+            Console.Write(MorseCodeDecode("."));     // 
         }
-
-        /*
-        public static string Decode(string morseCode)
-        {
-            Console.WriteLine(morseCode);
-                int length = morseCode.Length;
-                int [] array = new int [length];
-                for(int i = 0; i < length; i++)
-                  {
-                    array[i] = System.Convert.ToInt32(morseCode[i]);
-                  }
-            byte[] buffer = Encoding.ASCII.GetBytes(morseCode);
-            buffer = Encoding.Convert(Encoding.ASCII, Encoding.Default, buffer);
-            string result = Encoding.Default.GetString(buffer);
-            //Console.WriteLine();
-
-            byte[] bytes2 = BitConverter.GetBytes(i);
-            string s2 = Encoding.ASCII.GetString(bytes);
-            //string word = char.ConvertFromUtf32(array);
-            //Console.WriteLine(word);
-            return MorseCode.Get(result);
-        }*/
-
+        
         public static string MorseCodeDecode(string cod)
         {
             string resault = "", letter = "";
