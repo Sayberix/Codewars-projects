@@ -15,23 +15,10 @@ namespace Codewars
 
         public static string MorseCodeDecode(string cod)
         {
-            int countSpaceBefore = 0, countSpaceAfter = 0;
-            for (int i = 0; i < cod.Length; i++)
-            {
-                if (cod[i].Equals(' '))
-                    countSpaceBefore++;
-                else
-                    break;
-            }
-            for (int i = cod.Length-1; i >= 0; i--)
-            {
-                if (cod[i].Equals(' '))
-                    countSpaceAfter++;
-                else
-                    break;
-            }
+            // Удаляет все начальные и конечные символы пробела из текущей строки
+            cod = cod.Trim();
             string resault = "", letter = "";
-            for (int i = countSpaceBefore; i < cod.Length - countSpaceAfter; i++)
+            for (int i = 0; i < cod.Length; i++)
             {
                 if (cod[i].Equals(' '))
                 {
