@@ -9,14 +9,29 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            //Console.Write(MorseCodeDecode(".... . -.--   .--- ..- -.. ."));     //  . 
-            Console.Write(MorseCodeDecode(" . "));     // 
+            //Console.Write(MorseCodeDecode(".... . -.--   .--- ..- -.. ."));
+            Console.Write(MorseCodeDecode(" . "));     //
         }
-        
+
         public static string MorseCodeDecode(string cod)
         {
-            string resault = "", letter = "";
+            int countSpaceBefore = 0, countSpaceAfter = 0;
             for (int i = 0; i < cod.Length; i++)
+            {
+                if (cod[i].Equals(' '))
+                    countSpaceBefore++;
+                else
+                    break;
+            }
+            for (int i = cod.Length-1; i >= 0; i--)
+            {
+                if (cod[i].Equals(' '))
+                    countSpaceAfter++;
+                else
+                    break;
+            }
+            string resault = "", letter = "";
+            for (int i = countSpaceBefore; i < cod.Length - countSpaceAfter; i++)
             {
                 if (cod[i].Equals(' '))
                 {
@@ -34,7 +49,9 @@ namespace Codewars
                 else
                 {
                     if (cod[i].Equals('.') || cod[i].Equals('-'))
-                        letter = String.Concat(letter, cod[i]);                      
+                    {
+                        letter = String.Concat(letter, cod[i]);
+                    }
                 }
             }
             resault = String.Concat(resault, MorseCodeLetter(Convert.ToString(letter)));
