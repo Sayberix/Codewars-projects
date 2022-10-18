@@ -9,7 +9,7 @@ namespace Codewars
 
         private static void Main(string[] args)
         {
-            MoveZeroes(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 });
+            MoveZeroes(new int[] { 1, 2, 0, 0, 1, 0, 1, 0, 3, 0, 1 });
         }
 
         public static int[] MoveZeroes(int[] arr)
@@ -27,10 +27,10 @@ namespace Codewars
                     if (count != 0)
                     {
                         arr[i - count] = arr[i];
-                        for(int j = i - (count - 1); j == i - count; j++)
+                        for(int j = i - count + 1; j <= i; j++)
                             arr[j] = 0;
                         count = 0;
-                        Console.WriteLine($"[{String.Join("; ", arr)}]");
+                        i =- count;
                     }
                 }
             }
