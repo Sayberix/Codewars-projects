@@ -1,4 +1,6 @@
-﻿namespace Codewars
+﻿using System;
+
+namespace Codewars
 {
     internal class Program
     {
@@ -23,7 +25,19 @@
 
         public static int[] Snail(int[][] array)
         {
-            
+
+            int[] resault = new int[array.GetLength(0) * array.GetLength(1)];
+
+            return resault;
+        }
+
+        public static void IteratingOverElements(int [][] array)
+        {
+            for(int i = 0; i < array.GetLength(0); i++)
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+
+                }
         }
     }
 }
